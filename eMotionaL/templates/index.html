@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<!-- TO DO: https://hackersandslackers.com/serving-static-assets-in-flask/ -->
+
+<head>
+    <title>eMotionaL</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+    <link rel="icon" href="../static/assets/favicon.png" type="image/gif">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/reset.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1"
+        charset="utf-8">
+
+</head>
+
+<body>
+    <div id="anchor"></div>
+    <div id="particles-js"></div>
+    <div id="menuContainer">
+        <i class="fas fa-bars menu" onclick="openNav()"></i>
+        <h1 id="menuTitle">eMotionaL</h1>
+    </div>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#anchor" onclick="closeNav()" style="width: 275px;">Home<i class="fas fa-home"
+                style="padding: 0px 0px 0px 10px; font-size: 25px;"></i></a>
+        <a href="#howItWorks" onclick="closeNav()" style="width: 275px;">How it works<i class="fas fa-cog"
+                style="padding: 0px 0px 0px 10px; font-size: 25px;"></i></a>
+        <a href="#testTheModel" onclick="closeNav()" style="width: 275px;">Test the model<i class="fas fa-wrench"
+                style="padding: 0px 0px 0px 10px; font-size: 25px;"></i></a>
+        <a href="#liveTest" onclick="closeNav()" style="width: 275px;">Live Test<i class="fas fa-microphone"
+                style="padding: 0px 0px 0px 10px; font-size: 25px;"></i></a>
+    </div>
+    <div id="titleContainer">
+        <h1 id="title">eMotionaL</h1>
+    </div>
+    <div id="center">
+        <div id="wave">
+            <span class="bar bar-0"></span>
+            <span class="bar bar-1"></span>
+            <span class="bar bar-2"></span>
+            <span class="bar bar-3"></span>
+            <span class="bar bar-4"></span>
+            <span class="bar bar-5"></span>
+            <span class="bar bar-6"></span>
+            <span class="bar bar-7"></span>
+            <span class="bar bar-8"></span>
+            <span class="bar bar-9"></span>
+            <span class="bar bar-10"></span>
+            <span class="bar bar-11"></span>
+            <span class="bar bar-12"></span>
+            <span class="bar bar-13"></span>
+            <span class="bar bar-14"></span>
+            <span class="bar bar-15"></span>
+            <span class="bar bar-16"></span>
+            <span class="bar bar-17"></span>
+            <span class="bar bar-18"></span>
+            <span class="bar bar-19"></span>
+            <span class="bar bar-20"></span>
+            <span class="bar bar-21"></span>
+            <span class="bar bar-22"></span>
+            <span class="bar bar-23"></span>
+            <span class="bar bar-24"></span>
+            <span class="bar bar-25"></span>
+            <span class="bar bar-26"></span>
+            <span class="bar bar-27"></span>
+            <span class="bar bar-28"></span>
+            <span class="bar bar-29"></span>
+            <span class="bar bar-30"></span>
+            <span class="bar bar-31"></span>
+            <span class="bar bar-32"></span>
+            <span class="bar bar-33"></span>
+            <span class="bar bar-34"></span>
+            <span class="bar bar-35"></span>
+            <span class="bar bar-36"></span>
+            <span class="bar bar-37"></span>
+            <span class="bar bar-38"></span>
+            <span class="bar bar-39"></span>
+            <span class="bar bar-40"></span>
+        </div>
+    </div>
+
+    <div id="taglineContainer">
+        <h1 id="tagline">Predicting emotion through speech</h1>
+    </div>
+    <div id="scrollContainer">
+        <a href="#howItWorks">
+            <h1 id="scroll">Scroll</h1>
+            <i class="fas fa-angle-down"></i>
+        </a>
+    </div>
+    <div id="howItWorks">
+        <h1 id="howItWorksTitle">How It Works</h1>
+        <hr />
+        <div id="howItWorksSteps">
+            <div style='margin-top:140px;margin-left:300px'>
+                <h1>Feed in vocal input</h1>
+            </div>
+            <img src="{{ url_for('static', filename='assets/angry.png') }}" style="height: 300px; width: 500px;">
+        </div>
+        <div id="howItWorksSteps">
+            <img src="{{ url_for('static', filename='assets/angry.png') }}" style="height: 300px; width: 500px;">
+            <div style='margin-top:140px; margin-right:200px'>
+                <h1>Run eMotionaL on your input</h1>
+            </div>
+        </div>
+        <div id="howItWorksSteps">
+            <div style='margin-top:140px; margin-left:300px'>
+                <h1>Display result</h1>
+            </div>
+            <img src="{{ url_for('static', filename='assets/angry.png') }}" style="height: 300px; width: 500px;">
+        </div>
+    </div>
+    <div id="testTheModel">
+        <h1 id="testTheModelTitle">Test the model</h1>
+        <hr />
+        <div id="emotionButtons">
+            <a href="#testTheModel" onclick='expandDiv("angry")' class="btn btn-outline-primary btn-outline"><span
+                    class="btn-outline__line btn-outline__line--left"></span>
+                <span class="btn-outline__line btn-outline__line--right"></span>Angry</a>
+            <a href="#testTheModel" onclick='expandDiv("happy")' class="btn btn-outline-primary btn-outline"><span
+                    class="btn-outline__line btn-outline__line--left"></span>
+                <span class="btn-outline__line btn-outline__line--right"></span>Happy</a>
+            <a href="#testTheModel" onclick='expandDiv("sad")' class="btn btn-outline-primary btn-outline"><span
+                    class="btn-outline__line btn-outline__line--left"></span>
+                <span class="btn-outline__line btn-outline__line--right"></span>Sad</a>
+            <a href="#testTheModel" onclick='expandDiv("neutral")' class="btn btn-outline-primary btn-outline"><span
+                    class="btn-outline__line btn-outline__line--left"></span>
+                <span class="btn-outline__line btn-outline__line--right"></span>Neutral</a>
+        </div>
+
+    </div>
+
+
+    <div id="testResult">
+        <!-- injection -->
+
+    </div>
+
+
+
+
+    <div id="liveTest">
+        <h1 id="testTheModelTitle">Live Test</h1>
+        <hr />
+        <div id="liveTestContent">
+            <div id="column" style=' padding-top:40px'>
+                <button id="recordButton">Record</button>
+                <button id="stopButton">Stop</button>
+            </div>
+            <div id="column">
+                <h3 style='padding-bottom: 30px'>Past Recordings</h3>
+                <div style='font-size: 15px;line-height: 15px;' id="recordingsList">
+
+
+                </div>
+            </div>
+            <div id="column" class = "results">
+                <h3 style='padding-bottom: 30px'>Results</h3>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+    <script src="{{ url_for('static', filename='scripts/particles.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/local.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/recorder.js') }}"></script>
+
+
+</body>
+
+</html>
