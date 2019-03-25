@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css') }}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
         integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.js"></script>
@@ -101,38 +102,38 @@
         <h1 id="howItWorksTitle">How It Works</h1>
         <hr />
         <div id="howItWorksSteps">
-            <div style='margin-top:140px;margin-left:300px'>
-                <h1>Feed in vocal input</h1>
+            <div style='margin-top:250px;'>
+                <h1><span style="color:red">Speak</span> with expression.</h1>
             </div>
-            <img src="{{ url_for('static', filename='assets/angry.png') }}" style="height: 300px; width: 500px;">
+            <img id = "picone" src="{{ url_for('static', filename='assets/exclamation.png') }}" style="height: 500px; width: 500px;">
         </div>
         <div id="howItWorksSteps">
-            <img src="{{ url_for('static', filename='assets/angry.png') }}" style="height: 300px; width: 500px;">
-            <div style='margin-top:140px; margin-right:200px'>
-                <h1>Run eMotionaL on your input</h1>
+            <img id = "pictwo" src="{{ url_for('static', filename='assets/analyze.png') }}" style="height: 300px; width: 300px;">
+            <div style='margin-top:140px;width:400px'>
+                <h1>eMotional will <span style="color:#ffcb0c">analyze</span> the tone of your voice.</h1>
             </div>
         </div>
         <div id="howItWorksSteps">
-            <div style='margin-top:140px; margin-left:300px'>
-                <h1>Display result</h1>
+            <div style='margin-top:140px;width:400px'>
+                <h1>Let the technology tell you how you're <span style="color:red">f</span><span style="color:orange">e</span><span style="color:#ffcb0c">e</span><span style="color:green">l</span><span style="color:blue">i</span><span style="color:indigo">n</span><span style="color:violet">g</span>.</h1>
             </div>
-            <img src="{{ url_for('static', filename='assets/angry.png') }}" style="height: 300px; width: 500px;">
+            <img id = "picthree" src="{{ url_for('static', filename='assets/colour-wheel.png') }}" style="height: 300px; width: 300px;">
         </div>
     </div>
     <div id="testTheModel">
         <h1 id="testTheModelTitle">Test the model</h1>
         <hr />
         <div id="emotionButtons">
-            <a href="#testTheModel" onclick='expandDiv("angry")' class="btn btn-outline-primary btn-outline"><span
+            <a href="#emotionButtons" onclick='expandDiv("angry")' class="btn btn-outline-primary btn-outline"><span
                     class="btn-outline__line btn-outline__line--left"></span>
                 <span class="btn-outline__line btn-outline__line--right"></span>Angry</a>
-            <a href="#testTheModel" onclick='expandDiv("happy")' class="btn btn-outline-primary btn-outline"><span
+            <a href="#emotionButtons" onclick='expandDiv("happy")' class="btn btn-outline-primary btn-outline"><span
                     class="btn-outline__line btn-outline__line--left"></span>
                 <span class="btn-outline__line btn-outline__line--right"></span>Happy</a>
-            <a href="#testTheModel" onclick='expandDiv("sad")' class="btn btn-outline-primary btn-outline"><span
+            <a href="#emotionButtons" onclick='expandDiv("sad")' class="btn btn-outline-primary btn-outline"><span
                     class="btn-outline__line btn-outline__line--left"></span>
                 <span class="btn-outline__line btn-outline__line--right"></span>Sad</a>
-            <a href="#testTheModel" onclick='expandDiv("neutral")' class="btn btn-outline-primary btn-outline"><span
+            <a href="#emotionButtons" onclick='expandDiv("neutral")' class="btn btn-outline-primary btn-outline"><span
                     class="btn-outline__line btn-outline__line--left"></span>
                 <span class="btn-outline__line btn-outline__line--right"></span>Neutral</a>
         </div>
@@ -145,29 +146,32 @@
 
     </div>
 
-
-
-
     <div id="liveTest">
-        <h1 id="testTheModelTitle">Live Test</h1>
+        <h1 id="liveTestTitle">Live Test</h1>
         <hr />
         <div id="liveTestContent">
-            <div id="column" style=' padding-top:40px'>
+            <div id="column">
+                <h3 style='padding: 0px 0px 30px 40px'>Record Your Voice</h3>
                 <button id="recordButton">Record</button>
                 <button id="stopButton">Stop</button>
             </div>
             <div id="column">
-                <h3 style='padding-bottom: 30px'>Past Recordings</h3>
+                <h3 style='padding: 0px 0px 30px 55px'>Past Recordings</h3>
                 <div style='font-size: 15px;line-height: 15px;' id="recordingsList">
-
-
+                    <!-- Injection -->
                 </div>
             </div>
-            <div id="column" class = "results">
-                <h3 style='padding-bottom: 30px'>Results</h3>
+            <div id="column" class="results">
+                <h3 style='padding: 0px 0px 30px 153px'>Results</h3>
+                <div id="emotion">
+                    <!-- Injection -->
+                </div>
             </div>
         </div>
-
+    </div>
+    <div id="footer">
+        <hr />
+        <div id="footerContent">eMotional - Western Engineering 2019</div>
     </div>
 
     <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>

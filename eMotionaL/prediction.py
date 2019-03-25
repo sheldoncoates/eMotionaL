@@ -47,6 +47,7 @@ def predict(value):
     # abc needs to be inverse_transformed before we try to use it
     abc = actual.astype(int).flatten()
     returnValue = str(lb.inverse_transform(abc))
+
     K.clear_session() 
     return returnValue
 
@@ -75,6 +76,7 @@ def livepredict(value):
     # abc needs to be inverse_transformed before we try to use it
     abc = actual.astype(int).flatten()
     returnValue = str(lb.inverse_transform(abc))
+
     K.clear_session() 
     return returnValue
 

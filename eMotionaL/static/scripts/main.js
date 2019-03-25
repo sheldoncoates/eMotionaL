@@ -183,6 +183,11 @@ $('a[href*="#"]')
 
 //adding shadow on scroll and stuff
 $(window).scroll(function () {
+  showImages('#picone');
+  showImages('#pictwo');
+  showImages('#picthree');
+
+
   var scroll = $(window).scrollTop();
   if (scroll > 0) {
     $("#menuContainer").addClass("active");
@@ -197,12 +202,6 @@ $(window).scroll(function () {
 
   }
 });
-// play button shit 
-$('#play-video').on('click', function (e) {
-  e.preventDefault();
-  $('#video-overlay').addClass('open');
-  $("#video-overlay").append('<iframe width="560" height="315" src="https://www.youtube.com/embed/ngElkyQ6Rhs" frameborder="0" allowfullscreen></iframe>');
-});
 
 $('.video-overlay, .video-overlay-close').on('click', function (e) {
   e.preventDefault();
@@ -216,3 +215,15 @@ $(document).keyup(function (e) {
 function close_video() {
   $('.video-overlay.open').removeClass('open').find('iframe').remove();
 };
+
+function showImages(el) {
+  var windowHeight = jQuery( window ).height();
+  $(el).each(function(){
+      var thisPos = $(this).offset().top;
+
+      var topOfWindow = $(window).scrollTop();
+      if (topOfWindow + windowHeight - 200 > thisPos ) {
+          $(this).addClass("fadeIn");
+      }
+  });
+}

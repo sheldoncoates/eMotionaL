@@ -65,27 +65,30 @@ function createDownloadLink(blob) {
     //add controls to the <audio> element 
     au.controls = true;
     au.src = url;
+    au.style.paddingRight = "20px";
     //link the a element to the blob 
     link.href = url;
     link.download = nameOfClip + '.wav';
     link.innerHTML = link.download;
-    link.verticalAlign = 'text-top';
+    // link.verticalAlign = 'text-top';
     link.style.textDecoration = 'none';
-    link.style.color = 'black';
-    link.style.colorVisited = 'black';
+    link.style.color = '#393BC2';
+    link.style.paddingRight = "5px";    
 
     //add the new audio and a elements to the li element 
     li.appendChild(au);
 
     //this is for link namebutton.wav    
     // li.appendChild(link);
-    $('.results').append(link);
+    
 
 
     var upload = document.createElement('a');
     //this is upload button
     upload.href = "#liveTest"
     upload.innerHTML = "Upload";
+    upload.style.textDecoration = 'none';
+    upload.style.color = '#393BC2';
     upload.addEventListener("click", function (event) {
         var headers = {
             'Content-Type': 'multipart/form-data',
@@ -97,6 +100,19 @@ function createDownloadLink(blob) {
         axios.post('http://localhost:5000/predict', data)
             .then(function (response) {
                 console.log(response.data);
+                let string = response.data
+                let desired = string.replace(/[^\w\s]/gi, '')
+                console.log(desired);
+                let upper = desired.charAt(0).toUpperCase() + desired.slice(1);
+                var div = document.createElement('div');
+                div.append("Prediction: "+ upper);
+                div.style.height = "74px";
+                div.style.display = "flex";
+                div.style.alignItems = "center";
+                div.style.padding = "0px 0px 0px 115px";
+
+                // div.style.padding = "30px 0px 0px 10px";
+                $('#emotion').append(div);
             })
             .catch(function (err) {
                 console.log("Could not get prediction");
@@ -104,15 +120,17 @@ function createDownloadLink(blob) {
 
     })
 
-    upload.style.paddingTop = "400px";
-    upload.classList.add("upload");
-
-    $('.results').append(upload);
-    $('.results').append(breakk);
-
-    
+   
+    // $('.results').append(breakk);
+    li.appendChild(link);
+    li.appendChild(upload);    
+    li.style.display = "flex";
+    li.style.alignItems = "center";
+    li.style.justifyContent = "center";
+    li.style.padding = "10px 0px 10px 0px";
     //add the li element to the ordered list 
     recordingsList.appendChild(li);
-    
+    // $('#recordingsList').append(link);
+    // $('#recordingsList').append(upload);
 
 }

@@ -18,7 +18,7 @@ import prediction as prediction
 from flask import Flask, url_for, render_template, request, Response
 from flask_static_compress import FlaskStaticCompress
 from flask_cors import CORS
-
+import logging
 tf.logging.set_verbosity(tf.logging.ERROR)
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 app = Flask(__name__)
@@ -43,13 +43,14 @@ def home():
 @app.route('/predict', methods = ['GET'])
 def predict():
     # 0 is angry, 1 is happy, 2 is neutral, 3 is sad 
+    print("eMotionaL has received an emotion request.")
     emotion = request.args.get('emotion')
-    print(emotion)
     return prediction.predict(emotion)
 
 @app.route('/predict', methods = ['POST'])
 def livePredict():
     # 0 is angry, 1 is happy, 2 is neutral, 3 is sad 
+    print("eMotionaL has received an emotion request.")
     file = request.files['audio_file']
     path = "filestorage/" + request.form['name'] + ".wav"
     f = open(path,"xb")

@@ -2,13 +2,13 @@ const expandDiv = (value) => {
     if (value == "angry") {
         $("#testResult").html("<div class = 'container'><div class='buttonContainer'><a id='play-video' class='video-play-button' onclick='playEmotion(\"angry\")'><span></span></a></div><img style='width: 500px;height:300px;padding-left:60px;' src='/static/assets/angry.png'><div class='predictContainer'><button class='loading-button'><span>Predict</span></button><div id='prediction'></div></div></div>");
     } else if (value == "happy") {
-        $("#testResult").html("<div class = 'container'><div class='buttonContainer'><a id='play-video' class='video-play-button' onclick='playEmotion(\"happy\")'><span></span></a></div><img style='width: 500px;height:300px;' src='/static/assets/happy.png''><div class='predictContainer'><button class='loading-button'><span>Predict</span></button><div id='prediction'></div></div></div>");
+        $("#testResult").html("<div class = 'container'><div class='buttonContainer'><a id='play-video' class='video-play-button' onclick='playEmotion(\"happy\")'><span></span></a></div><img style='width: 500px;height:300px;padding-left:60px;' src='/static/assets/happy.png''><div class='predictContainer'><button class='loading-button'><span>Predict</span></button><div id='prediction'></div></div></div>");
     }
     else if (value == "sad") {
-        $("#testResult").html("<div class = 'container'><div class='buttonContainer'><a id='play-video' class='video-play-button' onclick='playEmotion(\"sad\")'><span></span></a></div><img style='width: 500px;height:300px;' src='/static/assets/sad.png'><div class='predictContainer'><button class='loading-button'><span>Predict</span></button><div id='prediction'></div></div></div>");
+        $("#testResult").html("<div class = 'container'><div class='buttonContainer'><a id='play-video' class='video-play-button' onclick='playEmotion(\"sad\")'><span></span></a></div><img style='width: 500px;height:300px;padding-left:60px;' src='/static/assets/sad.png'><div class='predictContainer'><button class='loading-button'><span>Predict</span></button><div id='prediction'></div></div></div>");
     }
     else if (value == "neutral") {
-        $("#testResult").html("<div class = 'container'><div class='buttonContainer'><a id='play-video' class='video-play-button' onclick='playEmotion(\"neutral\")'><span></span></a></div><img style='width: 500px;height:300px;' src='/static/assets/neutral.png'><div class='predictContainer'><button class='loading-button'><span>Predict</span></button><div id='prediction'></div></div></div>");
+        $("#testResult").html("<div class = 'container'><div class='buttonContainer'><a id='play-video' class='video-play-button' onclick='playEmotion(\"neutral\")'><span></span></a></div><img style='width: 500px;height:300px;padding-left:60px;' src='/static/assets/neutral.png'><div class='predictContainer'><button class='loading-button'><span>Predict</span></button><div id='prediction'></div></div></div>");
     }
     const button = document.getElementsByClassName("loading-button")[0];
     button.addEventListener("click", function () {
