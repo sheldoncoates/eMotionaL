@@ -21,7 +21,7 @@ def predict(value):
     # plt.figure(figsize=(15, 5))
     # librosa.display.waveplot(data, sr=sample)
     # plt.show()
-
+    
     df = pd.DataFrame(columns=['feature'])
 
     X, sample_rate = librosa.load('./testdata/'+value+'.wav', res_type='kaiser_fast', duration=3, sr=22050*2, offset=0.5)
@@ -37,8 +37,9 @@ def predict(value):
 
     X_test = np.array(testfeatures)
     x_testcnn = np.expand_dims(X_test, axis=2)
-
+    print("about to load the model")
     model = load_model('./saved_models/eMotionaL.h5')
+    print("loaded model")
     preds = model.predict(x_testcnn, batch_size=32, verbose=1)
     print("The predictions " + str(preds))
 
