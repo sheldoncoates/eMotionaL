@@ -13,7 +13,6 @@
   <p align="center">
     Awarded most innovative project. Fourth year capstone project that can predict human emotion through vocal input using machine learning techniques (Keras & Tensorflow).
     <br />
-    ·
     <a href="https://github.com/sheldoncoates/eMotionaL/issues">Report Bug</a>
    </p>
 </p>
