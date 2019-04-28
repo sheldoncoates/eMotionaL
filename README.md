@@ -53,12 +53,14 @@ Sheldon Coates - [LinkedIn](https://www.linkedin.com/in/sheldoncoates/) - sjrcoa
 
 <!-- Installation -->
 ## Installation
-1. Install virtualenv like in here: https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/26/python-virtual-env/ 
-2. Make sure you have python 3.7 installed on you computer. You can download it here at: [Python](https://www.python.org/)
-3. Once you have your virtual env installed, cd to the directory which your virtual env is stored. Next run this command: `virtualenv --python=/Library/Frameworks/Python.framework/Versions/3.7/bin/python3 ./emotional/` 
-4. Next, run your virtual env like in the link in step 1.
-5. Once in your virtual env, cd to the directory where eMotionaL was downloaded then cd into eMotional.
-6.  Run: `pip install -r requirements.txt`. This will install all the required dependencies.
+1. Make sure you have python 3.7 installed on you computer. You can download it here at: [Python](https://www.python.org/)
+2. Install virtualenv like in here: https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/26/python-virtual-env/ 
+3. Once you have your virtual env installed, create a new virtual environment like in the link in step 2.
+3. Once you have created your virtual environment, go into the virtuaenvironment and delelte the folders: bin, include and lib. 
+4. Once you have removed those folders, cd to the directory which your virtual env is stored, for me it's in my root directory which is my name, and run the command: `virtualenv --python=/Library/Frameworks/Python.framework/Versions/3.7/bin/python3 ./emotional/` 
+5. Next, run your virtual env like in the link in step 2.
+6. Once in your virtual env, cd to the directory where eMotionaL was downloaded then cd into eMotionaL.
+7.  Run: `pip install -r requirements.txt`. This will install all the required dependencies.
 7. cd into the second eMotionaL folder in the project and then run: `python server.py`. This will host eMotionaL at: http://localhost:5000/ 
 
 
